@@ -1,0 +1,9 @@
+<!-- <p>customer-details works!</p> -->
+<!-- <a routerLink="/customer/add" class="btn btn-success mb-4">Add new post</a> -->
+<app-header></app-header>
+<div class="customer-details pt-3 pb-3">
+    <div class="text-secondary mb-4 text-right">
+        First Name:{{customer?.first_name}}<br> Last Name: {{customer?.last_name}}<br> Mobile No: {{customer?.phone_number}}<br> Email: {{customer?.email}}<br>
+    </div>
+    <div [innerHTML]="customer?.body"></div>
+</div>

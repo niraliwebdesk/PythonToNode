@@ -1,0 +1,55 @@
+<!-- <p>customer-list works!</p> -->
+<app-header></app-header>
+<p id="noti_status" style="color: red;" *ngIf="error">{{ error }}</p>
+<div class="fcm-list">
+    <p id="noti_status" style="color: blue;">{{ notification_msg }}</p>
+
+    <form action="/action_page.php">
+        Action :
+        <select name="actions" id="select1" [(ngModel)]="selectOneVal">
+                <option value="none">---------------------------</option>  
+            <option value="single_noti">Send test notification</option>
+              <option value="data_noti">Send data notification</option>
+              <option value="bulk_data_noti">Send bulk data notification</option>
+              <option value="bulk_noti">Send bulk notification</option>
+              <option value="enable">Enable selected</option>
+              <option value="disable">Disable selected</option>
+            </select>
+        <button type="button" (click)="save()" class="btn btn-primary" id="btn" style="margin-left:16px;">GO!</button>
+        <br><br>
+    </form>
+
+    <a routerLink="/fcm/fcmDevice/add" class="btn btn-success mb-4">Add new FCM device</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Is Active</th>
+                <th>User Name</th>
+                <!-- <th>Registration Token</th> -->
+                <th>Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let fcm of fcmList">
+                <td><input type="checkbox" (change)="onChange(fcm._id, $event.target.checked)"></td>
+                <td><a routerLink="/fcm/{{fcm._id}}" class="text-dark">{{fcm.name}}</a></td>
+                <td>{{fcm.isActive}}</td>
+                <td>{{fcm.user_name}}</td>
+                <!-- <td>{{fcm.registration_token}}</td> -->
+                <td>{{fcm.type}}</td>
+                <!-- <td><button (click)="onSendNoti(fcm._id)" type="button" class="btn btn-danger">Send Notification</button></td> -->
+                <td>
+                    <a routerLink="/admin/fcmDevice/update/{{fcm._id}}" class="btn btn-primary">Edit</a>
+
+                </td>
+                <td>
+                    <button (click)="onDeleteClick(fcm._id)" type="button" class="btn btn-danger">Delete</button>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+</div>

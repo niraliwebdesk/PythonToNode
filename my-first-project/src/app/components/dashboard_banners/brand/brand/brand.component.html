@@ -1,0 +1,38 @@
+<app-header></app-header>
+<div class="brand-list">
+
+    <a routerLink="/admin/dashboard/Brand/add" class="btn btn-success mb-4">Add New Brand </a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <!-- <th></th> -->
+                <th>Name</th>
+                <th>Brand Link</th>
+                <th>Image</th>
+                <th>Display Order</th>
+                <th>Status</th>
+                <!-- <th>Link Type</th> -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let brand of middleBannerList">
+                <!-- <td><input type="checkbox" (change)="toggleEditable($event, customer._id)" value=customer._id /></td> -->
+                <td><a routerLink="/dashboard/Brand/update/{{brand._id}}" class="text-dark">{{brand.name}}</a></td>
+                <td>{{brand.brand_link}}</td>
+                <td>{{brand.image}}</td>
+                <td>{{brand.display_order}}</td>
+                <td>{{brand.status}}</td>
+                <td>
+                    <a routerLink="/admin/dashboard/Brand/update/{{brand._id}}" class="btn btn-primary">Edit</a>
+
+                </td>
+                <td>
+                    <button (click)="onDeleteClick(brand._id)" type="button" class="btn btn-danger">Delete</button>
+                </td>
+
+            </tr>
+
+        </tbody>
+    </table>
+</div>

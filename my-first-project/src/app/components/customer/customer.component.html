@@ -1,0 +1,35 @@
+<!-- <p>customer-list works!</p> -->
+<app-header></app-header>
+<div class="customer-list">
+
+    <a routerLink="/admin/user/customer/add" class="btn btn-success mb-4">Add New Customer </a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>First name</th>
+                <th>last name</th>
+                <th>email</th>
+                <th>Phone number</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let customer of customerList">
+                <td><a routerLink="/customer/{{customer._id}}" class="text-dark">{{customer.first_name}}</a></td>
+                <td>{{customer.last_name}}</td>
+                <td>{{customer.email}}</td>
+                <td>{{customer.phone_number}}</td>
+                <td>
+                    <a routerLink="/customer/update/{{customer._id}}" class="btn btn-primary">Edit</a>
+
+                </td>
+                <td>
+                    <button (click)="onDeleteClick(customer._id)" type="button" class="btn btn-danger">Delete</button>
+                </td>
+
+            </tr>
+
+        </tbody>
+    </table>
+
+</div>

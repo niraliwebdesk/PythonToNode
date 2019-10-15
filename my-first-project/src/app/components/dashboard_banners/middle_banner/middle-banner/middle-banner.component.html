@@ -1,0 +1,38 @@
+<!-- <p>customer-list works!</p> -->
+<app-header></app-header>
+<div class="middleBanner-list">
+
+    <a routerLink="/admin/dashboard/MiddleBanner/add" class="btn btn-success mb-4">Add New Middle Banner </a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <!-- <th></th> -->
+                <th>Name</th>
+                <th>Brand Link</th>
+                <th>Image</th>
+                <th>Display Order</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let middleBanner of middleBannerList">
+                <td><a routerLink="/dashboard/MiddleBanner/update/{{middleBanner._id}}" class="text-dark">{{middleBanner.name}}</a></td>
+                <td>{{middleBanner.brand_link}}</td>
+                <td>{{middleBanner.image}}</td>
+                <td>{{middleBanner.display_order}}</td>
+                <td>{{middleBanner.status}}</td>
+                <td>{{middleBanner.link_type}}</td>
+                <td>
+                    <a routerLink="/admin/dashboard/MiddleBanner/update/{{middleBanner._id}}" class="btn btn-primary">Edit</a>
+
+                </td>
+                <td>
+                    <button (click)="onDeleteClick(middleBanner._id)" type="button" class="btn btn-danger">Delete</button>
+                </td>
+
+            </tr>
+
+        </tbody>
+    </table>
+</div>

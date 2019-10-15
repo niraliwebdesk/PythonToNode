@@ -1,0 +1,30 @@
+<app-header>
+</app-header>
+<div class="customer-list">
+
+    <a routerLink="/user/order/add" class="btn btn-success mb-4">Add new order</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Customer ID</th>
+                <th>Customer Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let order of orderList">
+                <td><a routerLink="/order/{{order._id}}" class="text-dark">{{order.order_id}}</a></td>
+                <td>{{order.customer_id}}</td>
+                <td>{{order.customer_name}}</td>
+                <td>
+                    <a routerLink="/order/update/{{order._id}}" class="btn btn-primary">Edit</a>
+
+                </td>
+                <td>
+                    <button (click)="onDeleteClick(order._id)" type="button" class="btn btn-danger">Delete</button>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
