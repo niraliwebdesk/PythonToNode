@@ -2,13 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AuthGuard } from './guards/auth.guard'; 
 import { NgModule } from '@angular/core';
 import { FileSelectDirective } from 'ng2-file-upload';
+import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CustomerListComponent } from './components/customer/customer.component';
 import { CustomerService } from './services/customer.service';
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { CustomerDetailsComponent } from './components/customer-details/customer-details.component';
 import { CustomerAddComponent } from './components/customer-add/customer-add.component';
 import { AdminPostFormComponent } from './components/admin-post-form/admin-post-form.component';
@@ -45,10 +46,12 @@ import { TopBannerComponent } from './components/dashboard_banners/top_banner/to
 import { TopBannerAddComponent } from './components/dashboard_banners/top_banner/top-banner-add/top-banner-add.component';
 import { TopBannerEditComponent } from './components/dashboard_banners/top_banner/top-banner-edit/top-banner-edit.component';
 import { AdminTopFormComponent } from './components/dashboard_banners/top_banner/admin-top-form/admin-top-form.component';
+import { UploadImageComponent } from './components/upload-image/upload-image.component';
+import { NgModule }    from '@angular/core';
+// import { Uploader }    from 'angular2-http-file-upload';
 import { LoginComponent } from './components/login/login.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LogoutComponent } from './components/logout/logout.component';
-
 const appRoutes: Routes = [
   { path: 'admin', component: BaseDashboardComponent },
   { path: '', component: LoginComponent},
@@ -102,6 +105,8 @@ const appRoutes: Routes = [
   { path: 'admin/dashboard/TopBanner/add', component: TopBannerAddComponent},
   { path: 'admin/dashboard/TopBanner/update/:id', component: TopBannerEditComponent },
   
+  //Image upload
+  {path: 'admin/dashboard/Upload_Image', component:UploadImageComponent},
 
 ];
 
@@ -145,6 +150,7 @@ const appRoutes: Routes = [
     TopBannerAddComponent,
     TopBannerEditComponent,
     AdminTopFormComponent,
+UploadImageComponent,
     LoginComponent,
     HeaderComponent,
     LogoutComponent,

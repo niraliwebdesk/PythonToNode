@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const top_banner_Scehma = new mongoose.Schema({
     name: {
         type: String,
-        required: true
+        required: false
     },
     product_link: {
         type: String,
@@ -13,9 +13,9 @@ const top_banner_Scehma = new mongoose.Schema({
         type: String,
         required: false
     },
-    image: {
+    imageid:{
         type: String,
-        required: false
+        required:false
     },
     display_order: {
         type: String,

@@ -9,10 +9,10 @@ const Middle_Banner_Scehma = new mongoose.Schema({
         type: String,
         required: false
     },
-    image: {
-        type: String,
-        required: false
-    },
+    // image: {
+    //     type: String,
+    //     required: false
+    // },
     display_order: {
         type: String,
         required: false
@@ -20,6 +20,14 @@ const Middle_Banner_Scehma = new mongoose.Schema({
     status: {
         type: String,
         required: false
+    },
+    imageid:{
+        type: String,
+        required:false
+    },
+    path:{
+        type: String,
+        required:false
     }
 })
 const middle_banner = mongoose.model('middle_banner', Middle_Banner_Scehma);

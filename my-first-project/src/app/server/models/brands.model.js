@@ -9,17 +9,22 @@ const Brand_Scehma = new mongoose.Schema({
         type: String,
         required: false
     },
-    image: {
-        type: String,
-        required: false
-    },
+    // image: {
+    //     type: String,
+    //     required: false
+    // },
     display_order: {
         type: String,
         required: false
     },
+       
     status: {
         type: String,
         required: false
+    },
+    imageid:{
+        type: String,
+        required:false
     }
 })
 const brand = mongoose.model('brand', Brand_Scehma);

@@ -1,33 +1,35 @@
-<form *ngIf="post" (ngSubmit)="onSubmit()">
+<form [formGroup]="topForm" *ngIf="post" (ngSubmit)="onSubmit()">
     <div class="form-group">
         <label for="name">Name</label>
-        <input class="form-control" type="text" name="name" id="name" placeholder="name" [(ngModel)]="post.name">
+        <input class="form-control" type="text" formControlName="name" id="name" placeholder="name" [(ngModel)]="post.name">
     </div>
     <div class="form-group">
         <label for="product_link">Product Link</label>
-        <input type="text" name="product_link" id="product_link" class="form-control" placeholder="product_link" [(ngModel)]="post.product_link">
+        <input type="text" formControlName="product_link" id="product_link" class="form-control" placeholder="product_link" [(ngModel)]="post.product_link">
     </div>
     <div class="form-group">
         <label for="product_rating">Product Rating</label>
-        <input type="text" name="product_rating" id="product_rating" class="form-control" placeholder="product_rating" [(ngModel)]="post.product_rating">
+        <input type="text" formControlName="product_rating" id="product_rating" class="form-control" placeholder="product_rating" [(ngModel)]="post.product_rating">
     </div>
     <div class="form-group">
         <label for="display_order">Disply Order</label>
-        <select [(ngModel)]="post.display_order" name="display_order">
+        <select [(ngModel)]="post.display_order" formControlName="display_order">
             <option value="1" selected="selected">1</option>
             <option value="2">2</option>
         </select>
         <!-- <input type="text" name="display_order" id="display_order" class="form-control" placeholder="display_order" [(ngModel)]="post.display_order"> -->
     </div>
     <div class="form-group">
-        <label for="image">image</label>
-        <input type="file" name="image" id="image" class="form-control" (change)="onFileSelected($event)" placeholder="image" [(ngModel)]="post.image">
-
+        <input type = "file"  class="btn" value="image" formControlName="image" (change)="onFileSelected($event)"> 
+        <!-- <button type="button" (click)="onUpload()">UploadImage</button> -->
     </div>
 
+<div class="form-group">
+        <img [src]="imgURL"  height = "100px" width="100px">
+</div>
     <div class="form-group">
         <label for="status">Status</label>
-        <select [(ngModel)]="post.status" name="status">
+        <select [(ngModel)]="post.status" formControlName="status">
             <option value="active" selected="selected">Active</option>
             <option value="inactive">InActive</option>
         </select>
@@ -35,8 +37,8 @@
     </div>
     <div class="form-group">
         <label for="link_type">Link Type</label>
-        <input type="text" name="link_type" id="link_type" class="form-control" placeholder="link_type" [(ngModel)]="post.link_type">
+        <input type="text" formControlName="link_type" id="link_type" class="form-control" placeholder="link_type" [(ngModel)]="post.link_type">
     </div>
-    <button type="submit" class="btn btn-primary" id="btn">Save</button><br><br>
+    <button type="submit" [disabled]="!topForm.valid" class="btn btn-primary" id="btn">Save</button><br><br>
     <button type="button" (click)="onCancelClick()" class="btn btn-danger">Cancel</button>
 </form>

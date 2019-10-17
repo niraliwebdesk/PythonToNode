@@ -10,7 +10,7 @@
                 <!-- <th></th> -->
                 <th>Name</th>
                 <th>product_link</th>
-                <th>Image</th>
+                <!-- <th>Image</th> -->
                 <th>Display Order</th>
                 <th>Status</th>
                 <th>link_type</th>
@@ -22,7 +22,7 @@
             <tr *ngFor="let middleBanner of topbannerList">
                 <td><a routerLink="/dashboard/TopBanner/update/{{middleBanner._id}}" class="text-dark">{{middleBanner.name}}</a></td>
                 <td>{{middleBanner.product_link}}</td>
-                <td>{{middleBanner.image}}</td>
+                <!-- <td>{{middleBanner.image}}</td> -->
                 <td>{{middleBanner.display_order}}</td>
                 <td>{{middleBanner.status}}</td>
                 <td>{{middleBanner.link_type}}</td>

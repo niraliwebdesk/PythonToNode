@@ -10,7 +10,7 @@
                 <!-- <th></th> -->
                 <th>Name</th>
                 <th>collection Link</th>
-                <th>Image</th>
+                <!-- <th>Image</th> -->
                 <th>Display Order</th>
                 <th>Status</th>
                 <th>Link Type</th>
@@ -21,11 +21,13 @@
                 <!-- <td><input type="checkbox" (change)="toggleEditable($event, customer._id)" value=customer._id /></td> -->
                 <td><a routerLink="/dashboard/bottomBanner/update/{{bottomBanner._id}}" class="text-dark">{{bottomBanner.name}}</a></td>
                 <td>{{bottomBanner.collection_link}}</td>
-                <td>{{bottomBanner.image}}</td>
+                <!-- <td>{{bottomBanner.imageName}}</td> -->
+                
                 <td>{{bottomBanner.display_order}}</td>
                 <td>{{bottomBanner.status}}</td>
                 <td>{{bottomBanner.link_type}}</td>
                 <td>
+                    
                     <a routerLink="/admin/dashboard/bottomBanner/update/{{bottomBanner._id}}" class="btn btn-primary">Edit</a>
 
                 </td>
