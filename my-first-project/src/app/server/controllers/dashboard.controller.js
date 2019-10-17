@@ -1,22 +1,68 @@
 const BottomBar = require('../models/bottom_bar.model');
+const UploadImage = require('../models/upload_image');
 const MiddleBanner = require('../models/middle_banner.model');
 const Brand = require('../models/brands.model');
 const TopBanner = require('../models/top_banner.model');
+var multer = require('multer'); 
+const path = require('path');
+// var DIR = './uploads/';
+//var upload = multer({dest: DIR}).single('photo');
 
+//======================================= Bottom Banner ===============================================
 
-// ======================================= Bottom Banner ===============================================
-
-
+exports.uploadimage = function(req, res){
+    console.log("upload image api called")
+    // const storage=multer.diskStorage({
+    //     destination: (req, file, cb) => {
+    //         cb(null, './public/uploads')
+    //     },
+    //     filename:function(req, file, cb){
+    //         cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+    //     }
+    // });
+    
+    // const upload = multer({
+    //     storage:storage
+    // })
+    // upload(req, res, (err) =>{
+    //     if(err){
+    //         res.render('upload-image.component.html',{
+    //             msg:err
+                
+    //         });
+    //         console.log("hello 2",err)
+    //     }
+    //     else{
+    //         console.log("hello 3",req.file);
+    //         //console.log("i m here")
+    //         res.send(req.file);
+    //     }
+    // })
+    //var path = '';
+    // upload(req, res, function(err) {
+    //     if (err) {
+    //         return res.end("Something went wrong!");
+    //     }
+    //     else{
+    //         //path = req.file.path;
+    //         console.log("i got ")
+    //         return res.send("File uploaded sucessfully!.");
+            
+    //     }   
+        
+    // });
+    console.log("api call")
+}
 exports.createBottomBar = function(req, res) {
     const cust = new BottomBar({
         name: req.body.data.name,
         collection_link: req.body.data.collection_link,
-        image: req.body.data.image,
+        imageid:req.body.data.imageid,
+        //imageName: false,
         display_order: req.body.data.display_order,
         status: req.body.data.status,
         link_type: req.body.data.link_type,
     });
-
     cust.save().then(function(createdcust) {
             return res.status(200).json({
                 status: 200,
@@ -76,6 +122,7 @@ exports.updateBottomBar = function(req, res) {
             post.image = req.body.data.image || post.image;
             post.display_order = req.body.data.display_order || post.display_order;
             post.status = req.body.data.status || post.status;
+            post.imageid = req.body.data.imageid || post.imageid;
             post.link_type = req.body.data.link_type || post.link_type;
             post.save()
                 .then(function(updatedPost) {
@@ -134,9 +181,11 @@ exports.createMiddleBanner = function(req, res) {
     const cust = new MiddleBanner({
         name: req.body.data.name,
         brand_link: req.body.data.brand_link,
-        image: req.body.data.image,
+        //image: req.body.data.image,
         display_order: req.body.data.display_order,
-        status: req.body.data.status
+        status: req.body.data.status,
+        imageid:req.body.data.imageid,
+        path:req.body.data.path
     });
 
     cust.save().then(function(createdcust) {
@@ -253,7 +302,8 @@ exports.createBrand = function(req, res) {
     const cust = new Brand({
         name: req.body.data.name,
         brand_link: req.body.data.brand_link,
-        image: req.body.data.image,
+        //image: req.body.data.image,
+        imageid:req.body.data.imageid,
         display_order: req.body.data.display_order,
         status: req.body.data.status
     });
@@ -373,7 +423,8 @@ exports.createTopBanner = function(req, res) {
         name: req.body.data.name,
         product_link: req.body.data.product_link,
         product_rating: req.body.data.product_rating,
-        image: req.body.data.image,
+        //image: req.body.data.image,
+        imageid:req.body.data.imageid,
         display_order: req.body.data.display_order,
         status: req.body.data.status,
         link_type: req.body.data.link_type

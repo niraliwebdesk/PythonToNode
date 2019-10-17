@@ -1,0 +1,23 @@
+<p>upload-image works!</p>
+<!-- <a routerLink="admin/dashboard/Upload_Image" class="btn btn-success mb-4">Add Image</a> -->
+
+<!-- <div class="form-group">
+    <input type="file" class="form-control" (change)="onFileSelected($event)" > -->
+    <!-- <button class="btn btn-primary" (click)="onUpload()">Save</button> -->
+<!-- </div> -->
+<!-- <html>
+    <body>
+        <form id="frmUploader" enctype="multipart/form-data" action="/api/upload" method="post">
+            <input type="file" name="myImage" multiple />
+            <input type="submit" name="submit" id="btnSubmit" value="Upload" formaction="/api/upload" /> </form>
+    </body>
+</html> -->
+<input type = "file"  class="btn" value="image" name="myImage" (change)="onFileSelected($event)"> 
+<button type="button" (click)="onUpload()">UploadImage</button>
+  <!-- <html>
+      <body>
+          <p>upload-image works!</p>
+          <%= typeof msg != 'undefined' ? msg : '' %>
+          <form action=""
+          </body>
+    </html>> -->

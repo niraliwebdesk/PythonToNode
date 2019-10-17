@@ -5,6 +5,7 @@ import { Observable, of } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { map, filter, catchError, mergeMap } from 'rxjs/operators';
 import { Brands } from '../server/models/brands.model';
+import { reject } from 'q';
 
 @Injectable({
   providedIn: 'root'
@@ -55,5 +56,38 @@ export class BrandService {
     var url = this.brandURL + '/Brand/update/' + id;
     return this.http
       .put<Brands>(url, { data: post });
+  }
+  public onUpload(selectedFile:any, post:Brands):Promise<any>{
+    console.log("hello")
+    return new Promise((resolve,error)=>{
+
+    const fd = new FormData();
+    fd.append('image', selectedFile,selectedFile.name)
+    fd.append('name', name)
+    console.log("fd is", fd)
+    console.log('image name is ',selectedFile.name)
+    console.log("selected file", selectedFile)
+    console.log("upload image works")
+    this.http.post<Brands>(this.brandURL + '/bottomBanner/add/image', fd)
+    .subscribe((res:any)=>{
+      console.log("my response is",res);
+      if(res && res.id){
+        post.imageid = res.id;
+      this.addBrand(post).toPromise().then(data=>{
+        resolve(data)
+      }).catch(e=>{
+          reject(e)
+      });
+    }else{
+      reject({
+        "error":"image id not found"
+      })
+    }
+    },
+    e=>{
+      reject(e);
+    });
+     console.log("my form data is",fd)
+    })
   }
 }
