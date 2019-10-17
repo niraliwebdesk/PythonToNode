@@ -188,7 +188,7 @@ router.delete('/Brand/delete/:id', UserCtrl.deleteBrand);
 
 const top_storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, './public/TopBanner/')
+        cb(null, 'D:/second/PythonToNode/my-first-project/public/')
     },
     filename:function(req, file, cb){
         cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
