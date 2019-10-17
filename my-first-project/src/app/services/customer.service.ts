@@ -10,7 +10,7 @@ import { Customer } from '../server/models/user.model';
 
 @Injectable()
 export class CustomerService {
-  customerUrl = `${environment.apiUrl}/user`;
+  customerUrl = `${environment.apiUrl}/admin/user`;
   constructor(
     private http: HttpClient
   ) { }

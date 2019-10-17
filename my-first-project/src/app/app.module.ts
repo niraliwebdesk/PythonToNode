@@ -65,16 +65,16 @@ const appRoutes: Routes = [
   
   
   //order
-  { path: 'admin/order', component: OrderComponent },
-  { path: 'admin/order/:id', component: OrderDetailsComponent },
+  { path: 'admin/user/order', component: OrderComponent },
+  { path: 'admin/user/order/detail/:id', component: OrderDetailsComponent },
   { path: 'admin/user/order/add', component: OrderAddComponent },
-  { path: 'admin/order/update/:id', component: OrderEditComponent },
+  { path: 'admin/user/order/update/:id', component: OrderEditComponent },
   
   //FCM
-  { path: 'admin/fcmDevice', component: FcmComponent },
-  { path: 'admin/fcmDevice/:id', component: FcmDetailsComponent },
+  { path: 'admin/fcm/fcmDevice', component: FcmComponent },
+  { path: 'admin/fcm/fcmDevice/:id', component: FcmDetailsComponent },
   { path: 'admin/fcm/fcmDevice/add', component: FcmAddComponent },
-  { path: 'admin/fcmDevice/update/:id', component: FcmEditComponent },
+  { path: 'admin/fcm/fcmDevice/update/:id', component: FcmEditComponent },
 
   //Bottom Banner
 

@@ -11,7 +11,7 @@ import { Order } from '../server/models/order.model';
   providedIn: 'root'
 })
 export class OrderService {
-  orderUrl = `${environment.apiUrl}/user`;
+  orderUrl = `${environment.apiUrl}/admin/user`;
 
   constructor(
     private http: HttpClient

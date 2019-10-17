@@ -10,7 +10,7 @@ import { FCM } from '../server/models/fcm.model';
   providedIn: 'root'
 })
 export class FcmService {
-  FcmUrl = `${environment.apiUrl}/fcm`;
+  FcmUrl = `${environment.apiUrl}/admin/fcm`;
   constructor(
     private http: HttpClient
     ) { }

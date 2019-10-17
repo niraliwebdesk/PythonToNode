@@ -11,7 +11,7 @@ router.delete('/customer/delete/:id', UserCtrl.deleteCustomer);
 
 router.post('/order/add', UserCtrl.createOrder);
 router.get('/order', UserCtrl.orderList);
-router.get('/order/:id', UserCtrl.getOrder);
+router.get('/order/detail/:id', UserCtrl.getOrder);
 router.put('/order/update/:id', UserCtrl.updateOrder);
 router.delete('/order/delete/:id', UserCtrl.deleteOrder);
 

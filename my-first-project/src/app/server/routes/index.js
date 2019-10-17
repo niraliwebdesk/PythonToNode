@@ -7,8 +7,8 @@ const router = express.Router();
 router.get('/', function(req, res) {
     res.send('API works!');
 });
-router.use('/user', userRoutes);
+router.use('/admin/user', userRoutes);
 router.use('/dashboard', dashboardRoutes);
-router.use('/fcm', fcmRoutes);
+router.use('/admin/fcm', fcmRoutes);
 
 module.exports = router;

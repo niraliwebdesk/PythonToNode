@@ -58,16 +58,16 @@ const routes: Routes = [
   
   
   //order
-  { path: 'admin/order', component: OrderComponent, canActivate : [AuthGuard] },
-  { path: 'admin/order/:id', component: OrderDetailsComponent, canActivate : [AuthGuard] },
+  { path: 'admin/user/order', component: OrderComponent, canActivate : [AuthGuard] },
+  { path: 'admin/user/order/detail/:id', component: OrderDetailsComponent, canActivate : [AuthGuard] },
   { path: 'admin/user/order/add', component: OrderAddComponent, canActivate : [AuthGuard] },
-  { path: 'admin/order/update/:id', component: OrderEditComponent, canActivate : [AuthGuard] },
+  { path: 'admin/user/order/update/:id', component: OrderEditComponent, canActivate : [AuthGuard] },
   
   //FCM
-  { path: 'admin/fcmDevice', component: FcmComponent, canActivate : [AuthGuard] },
-  { path: 'admin/fcmDevice/:id', component: FcmDetailsComponent, canActivate : [AuthGuard] },
+  { path: 'admin/fcm/fcmDevice', component: FcmComponent, canActivate : [AuthGuard] },
+  { path: 'admin/fcm/fcmDevice/details/:id', component: FcmDetailsComponent, canActivate : [AuthGuard] },
   { path: 'admin/fcm/fcmDevice/add', component: FcmAddComponent, canActivate : [AuthGuard] },
-  { path: 'admin/fcmDevice/update/:id', component: FcmEditComponent, canActivate : [AuthGuard] },
+  { path: 'admin/fcm/fcmDevice/update/:id', component: FcmEditComponent, canActivate : [AuthGuard] },
 
   //Bottom Banner
 
