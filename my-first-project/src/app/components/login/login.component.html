@@ -1,6 +1,6 @@
 <div class="container">
-    <div class="col-md-6 col-md-offset-3 loginBox">
-        <h3>Log In</h3><br><br>
+    <div class="col-md-offset-3 loginBox">
+        <h3 style="margin-bottom: 40px;">Log In</h3>
         <p *ngIf="message" class="text-center error">{{message}}</p>
         <form [formGroup]="loginForm" (ngSubmit)="login()">
             <div class="form-group clearfix" [ngClass]="{ 'has-error': submitted && f.username.errors }">
@@ -22,8 +22,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 form-group text-right">
-                <button mdbBtn color="info" outline="true" rounded="true" block="true" class="my-4 waves-effect z-depth-0" mdbWavesEffect type="submit">Login</button>
+            <div class="col-xs-12 form-group text-center">
+                <button mdbBtn color="info" outline="true" rounded="true" block="true" class="btn btn-success mb-4" mdbWavesEffect type="submit">Login</button>
             </div>
         </form>
     </div>
