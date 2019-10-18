@@ -44,7 +44,7 @@ router.post('/bottomBanner/add/image', bottom_upload.single('image'), function(r
         image.save().then(data => {
             console.log("data is",data._id)
             const imageid = data._id
-            return res.send({"id":imageid})
+            return res.send({"id":imageid, "path":pathss})
         }).catch(e => {
         return res.send(e);
     })
@@ -175,7 +175,8 @@ router.post('/Brand/add/image',brand_upload.single('image'), function(req,res) {
         image.save().then(data => {
             console.log("data is",data._id)
             const imageid = data._id
-            return res.send({"id":imageid})
+            return res.send({"id":imageid,
+                            "path":pathss})
         }).catch(e => {
         return res.send(e);
     })
@@ -188,7 +189,7 @@ router.delete('/Brand/delete/:id', UserCtrl.deleteBrand);
 
 const top_storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, 'D:/second/PythonToNode/my-first-project/public/')
+        cb(null, './public/TopBanner/')
     },
     filename:function(req, file, cb){
         cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
@@ -218,7 +219,7 @@ router.post('/TopBanner/add/image', top_upload.single('image'), function(req,res
         image.save().then(data => {
             console.log("data is",data._id)
             const imageid = data._id
-            return res.send({"id":imageid})
+            return res.send({"id":imageid,"path":pathss})
         }).catch(e => {
         return res.send(e);
     })
